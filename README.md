@@ -1,17 +1,21 @@
 # go-docker
+
 Make it easier to use Go over Docker.
 
+
 # Usage
-Run the `gobuild.sh` script from your go `src` folder as:
+
+Use the `go.sh` the same way you would use `go` command from your go root folder (the one contains subfolders `src`, `pkg`, and `bin`).
+
+For example, to build `src/main/main.go` run:
 
 ```
-gobuild.sh <relative_path_to_main_package>
+go.sh install main
 ```
 
-For example, if there is a `src/main/main.go` file with a `main` function, run:
+The generated executable is under the `bin` folder.
 
-```
-gobuild.sh main
-```
 
-The generated executable is `executable.run` under the `src` folder. OS and architecture are auto-detected.
+# Caveats
+
+The script uses cross-compile feature of go to compile to the native platform. It uses `uname` to guess the OS and architecture. If your OS and architecture is not understood by the script, just add them to the `checked_detect_os_and_arch` function in the script. 
