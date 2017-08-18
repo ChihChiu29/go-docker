@@ -5,7 +5,7 @@ Make it easier to use Go from the official golang Docker container.
 
 # Usage
 
-Use the `go.sh` the same way you would use `go` command from your go root folder (the one contains subfolders `src`, `pkg`, and `bin`).
+Use the `go.sh` the same way you would use `go` command from your *go root folder* (the one contains subfolders `src`, `pkg`, and `bin`).
 
 For example, to build `src/main/main.go` run:
 
