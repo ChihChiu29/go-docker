@@ -1,6 +1,6 @@
 # go-docker
 
-Make it easier to use Go over Docker.
+Make it easier to use Go from the official golang Docker container.
 
 
 # Usage
