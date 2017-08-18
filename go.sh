@@ -14,6 +14,7 @@ function print_usage {
   echo 'godocker install main'
 }
 
+# Changes the values of "os" and "arch".
 function checked_detect_os_and_arch {
   case $(uname) in
     "Darwin")
@@ -47,5 +48,4 @@ if [[ $# -lt 1 ]]; then
 fi
 
 checked_detect_os_and_arch
-# docker run --rm -v "$PWD":/go/ -w /go/ -e GOOS="$os" -e GOARCH="$arch" golang go build -v "$package_path"
 docker run --rm -v "$PWD":/go/ -w /go/ -e GOOS="$os" -e GOARCH="$arch" golang go "$@"
