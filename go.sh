@@ -23,8 +23,8 @@ function checked_detect_os_and_arch {
     "Linux")
       os="linux"
       ;;
-    "Windows")
-      os="Windows"
+    "Windows"|*"_NT"*)
+      os="windows"
       ;;
   esac
 
