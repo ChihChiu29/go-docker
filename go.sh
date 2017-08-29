@@ -47,5 +47,13 @@ if [[ $# -lt 1 ]]; then
   exit -1
 fi
 
-checked_detect_os_and_arch
-docker run --rm -v "$PWD":/go/ -w /go/ -e GOOS="$os" -e GOARCH="$arch" golang go "$@"
+# Fill the command string.
+os_arch_flags=""
+
+subcommand=$1
+if [[ "$subcommand" == "install" || "$subcommand" == "build" ]]; then
+  checked_detect_os_and_arch
+  os_arch_flags="-e GOOS=$os -e GOARCH=$arch"
+fi
+
+docker run --rm -v "$PWD":/go/ -w /go/ $os_arch_flags golang go "$@"
